@@ -1,9 +1,15 @@
 <template>
   <div>
-    <Head>
+    <!-- <Head>
       <Title>关于</Title>
-    </Head>
+    </Head> -->
     <h1>关于</h1>
     <div>宁皓网创建于 2011 年。</div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { title } from 'process';
+
+useHead({ title: '关于' });
+</script>
