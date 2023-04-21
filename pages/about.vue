@@ -9,7 +9,5 @@
 </template>
 
 <script setup lang="ts">
-import { title } from 'process';
-
 useHead({ title: '关于' });
 </script>

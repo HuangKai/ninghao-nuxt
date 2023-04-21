@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-// definePageMeta({
-//   layout: 'immerse',
-// });
+definePageMeta({
+  layout: 'immerse',
+});
 </script>
