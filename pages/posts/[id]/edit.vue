@@ -8,4 +8,6 @@
 const {
   params: { id },
 } = useRoute();
+
+definePageMeta({ middleware: ['auth'] });
 </script>
