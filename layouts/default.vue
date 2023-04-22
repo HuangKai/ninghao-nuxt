@@ -9,6 +9,11 @@
         <div><NuxtLink to="/posts">内容</NuxtLink></div>
       </nav>
       <div>
+        <div v-if="currentUser">
+          <NuxtLink to="/create">
+            <img src="/icons/add.svg" alt="添加内容" />
+          </NuxtLink>
+        </div>
         <div v-if="!currentUser">
           <NuxtLink to="/login">
             <img src="/icons/account.svg" alt="登录" />
