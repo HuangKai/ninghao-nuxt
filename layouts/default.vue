@@ -6,7 +6,7 @@
       </div>
       <nav>
         <div><NuxtLink to="/about">关于</NuxtLink></div>
-        <div><NuxtLink to="/">内容</NuxtLink></div>
+        <div><NuxtLink to="/posts">内容</NuxtLink></div>
       </nav>
     </header>
     <main>
