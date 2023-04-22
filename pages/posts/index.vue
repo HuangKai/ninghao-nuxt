@@ -35,10 +35,8 @@ const {
   pending,
   refresh,
   error,
-} = await useAsyncData('posts', () =>
-  $fetch(`https://nid-node.ninghao.co/posts?page=${page.value}`, {
-    lazy: true,
-  }),
+} = await useFetch(
+  () => `https://nid-node.ninghao.co/posts?page=${page.value}`,
 );
 console.log(posts);
 </script>
