@@ -8,6 +8,13 @@
         <div><NuxtLink to="/about">关于</NuxtLink></div>
         <div><NuxtLink to="/posts">内容</NuxtLink></div>
       </nav>
+      <div>
+        <div>
+          <NuxtLink to="/login">
+            <img src="/icons/account.svg" alt="登录" />
+          </NuxtLink>
+        </div>
+      </div>
     </header>
     <main>
       <slot></slot>
