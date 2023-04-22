@@ -9,11 +9,12 @@
         <div><NuxtLink to="/posts">内容</NuxtLink></div>
       </nav>
       <div>
-        <div>
+        <div v-if="!currentUser">
           <NuxtLink to="/login">
             <img src="/icons/account.svg" alt="登录" />
           </NuxtLink>
         </div>
+        <div v-if="currentUser">{{ currentUser.name }}</div>
       </div>
     </header>
     <main>
@@ -24,6 +25,7 @@
 
 <script setup lang="ts">
 const { name } = useAppConfig();
+const currentUser = useState('currentUser');
 </script>
 
 <style>

@@ -28,6 +28,7 @@ useHead({ title: '登录' });
 
 const name = ref('');
 const password = ref('');
+const currentUser = useState('currentUser');
 
 const login = async () => {
   // console.log('name', name.value);
@@ -41,6 +42,9 @@ const login = async () => {
     },
   });
 
-  console.log(data.value);
+  // console.log(data.value);
+  if (data.value) {
+    currentUser.value = data.value;
+  }
 };
 </script>
