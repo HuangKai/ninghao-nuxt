@@ -38,5 +38,7 @@ const {
 } = await useFetch(
   () => `https://nid-node.ninghao.co/posts?page=${page.value}`,
 );
-console.log(posts);
+// console.log(posts);
+
+useApiFetch();
 </script>
