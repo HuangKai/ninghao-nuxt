@@ -45,6 +45,8 @@ const login = async () => {
   // console.log(data.value);
   if (data.value) {
     currentUser.value = data.value;
+
+    useLocalStorage('currentUser', currentUser.value);
   }
 };
 </script>
