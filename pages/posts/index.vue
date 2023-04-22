@@ -35,5 +35,5 @@ const {
   error,
 } = await useApiFetch(() => `posts?page=${page.value}`);
 
-useApiFetch();
+// useApiFetch();
 </script>
