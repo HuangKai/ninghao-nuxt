@@ -3,25 +3,9 @@
 //   body?: Record<string, any>;
 // };
 
-type HttpMethod =
-  | 'GET'
-  | 'HEAD'
-  | 'PATCH'
-  | 'POST'
-  | 'PUT'
-  | 'DELETE'
-  | 'CONNECT'
-  | 'OPTIONS'
-  | 'TRACE'
-  | 'get'
-  | 'head'
-  | 'patch'
-  | 'post'
-  | 'put'
-  | 'delete'
-  | 'connect'
-  | 'options'
-  | 'trace';
+import { CurrentUser } from '~/types/use.type';
+
+type HttpMethod = 'GET' | 'get' | Ref<'GET' | 'get' | undefined> | undefined;
 
 type UseApiFetchOptions = {
   method?: HttpMethod;
@@ -38,5 +22,19 @@ export const useApiFetch = <T>(
     public: { apiBaseUrl },
   } = useRuntimeConfig();
 
-  return useFetch<T>(api, { baseURL: apiBaseUrl, ...options });
+  const currentUser = useState<CurrentUser>('currentUser');
+
+  return useFetch<T>(api, {
+    baseURL: apiBaseUrl,
+
+    onRequest: (context) => {
+      if (currentUser.value) {
+        context.options.headers = {
+          Authorization: `Bearer ${currentUser.value.token}`,
+        };
+      }
+    },
+
+    ...options,
+  });
 };
