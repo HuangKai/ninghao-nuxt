@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CurrentUser } from '~/types/user.type.ts';
+import type { CurrentUser } from '~~/types/use.type';
 
 useHead({ title: '登录' });
 
