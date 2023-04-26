@@ -1,6 +1,21 @@
 <template>
   <form @submit.prevent>
     <div>
+      <button
+        class="bordered"
+        @click="($refs.fileInput as HTMLInputElement).click()"
+      >
+        选择图像文件
+      </button>
+      <input
+        type="file"
+        accept="image/png, image/jpeg, image/jpg"
+        ref="fileInput"
+        hidden
+        @change="onChangeFile"
+      />
+    </div>
+    <div>
       <input type="text" placeholder="标题" v-model="title" />
     </div>
     <div>
@@ -12,11 +27,22 @@
   </form>
 </template>
 
-<script setup lnag="ts">
+<script setup lang="ts">
 useHead({ title: '创建内容' });
 
 const title = ref('');
 const content = ref('');
+const file = ref<File>();
+
+const onChangeFile = (event: Event) => {
+  const { files } = event.target as HTMLInputElement;
+
+  if (files) {
+    file.value = files[0];
+  }
+
+  console.log(file.value);
+};
 
 const createPost = async () => {
   console.log(title.value, content.value);
