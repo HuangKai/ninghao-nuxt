@@ -11,8 +11,17 @@
       <button @click="forward">下一页</button>
     </div>
     <div v-if="pending">加载中...</div>
-    <div v-if="posts !== null">
+    <div class="post-list" v-if="posts !== null">
       <div v-for="post in posts" :key="post.id">
+        <div v-if="post.file">
+          <img
+            :src="`${apiBaseUrl}/files/${post.file.id}/serve?size=thumbnail`"
+            :alt="post.title"
+          />
+        </div>
+        <div>
+          <NuxtLink :to="`/posts/${post.id}`">{{ post.title }}</NuxtLink>
+        </div>
         <div>{{ post.content }}</div>
         <div>
           <small>{{ post.user.name }}</small>
@@ -31,6 +40,10 @@
 
 <script setup lang="ts">
 import { PostList } from '~/types/post.type';
+
+const {
+  public: { apiBaseUrl },
+} = useRuntimeConfig();
 
 const router = useRouter();
 const {
