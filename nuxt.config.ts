@@ -10,7 +10,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      apiBaseUrl: 'https://api.ninghao.co',
+      apiBaseUrl: 'https://nid-node.ninghao.co',
     },
   },
 });
