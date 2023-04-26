@@ -19,6 +19,15 @@
             :alt="post.title"
           />
         </div>
+        <div
+          v-else
+          style="
+            width: 64px;
+            height: auto;
+            background-color: #ccc;
+            border-radius: 50%;
+          "
+        ></div>
         <div>
           <NuxtLink :to="`/posts/${post.id}`">{{ post.title }}</NuxtLink>
         </div>
