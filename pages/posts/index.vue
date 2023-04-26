@@ -17,18 +17,27 @@
         <div>
           <small>{{ post.user.name }}</small>
         </div>
+        <div>
+          <div>
+            <NuxtLink :to="`/posts/${post.id}/edit`">
+              <img src="/icons/edit.svg" alt="编辑" />
+            </NuxtLink>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { PostList } from '~/types/post.type';
+
 const router = useRouter();
 const {
   query: { page: pageNumber },
 } = useRoute();
 
-const page = ref(pageNumber ? pareInt(`${pageNumber}`, 10) : 1);
+const page = ref(pageNumber ? parseInt(`${pageNumber}`, 10) : 1);
 
 const updateQuery = () => {
   router.push({ query: { page: page.value } });

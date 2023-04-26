@@ -14,7 +14,7 @@ type UseApiFetchOptions = {
 
 export const useApiFetch = <T>(
   api: string | (() => string),
-  options: UseApiFetchOptions,
+  options?: UseApiFetchOptions,
 ) => {
   console.log('useApiFetch');
 
